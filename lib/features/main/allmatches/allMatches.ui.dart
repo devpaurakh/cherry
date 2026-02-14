@@ -14,7 +14,7 @@ class AllMatchesScreen extends StatelessWidget {
               //here to detail page
             },
             child: Card(
-              color: Colors.black.withAlpha(10),
+              color: Colors.black.withAlpha(30),
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),

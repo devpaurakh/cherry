@@ -1,3 +1,4 @@
+import 'package:cherry/core/color.theme.dart';
 import 'package:flutter/material.dart';
 
 class MyMatchesScreen extends StatelessWidget {
@@ -6,11 +7,15 @@ class MyMatchesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.black,
-        child: const Icon(Icons.add, color: Colors.white),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: AppColors.primaryColor,
+        label: Text("Matches", style: TextStyle(color: Colors.white)),
+
+        icon: const Icon(Icons.add, color: Colors.white),
+
         onPressed: () {
           // Create new match
+          
         },
       ),
 
@@ -22,7 +27,7 @@ class MyMatchesScreen extends StatelessWidget {
               //here to detail page
             },
             child: Card(
-              color: Colors.black.withAlpha(10),
+              color: Colors.black.withAlpha(30),
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -70,7 +75,7 @@ class MyMatchesScreen extends StatelessWidget {
                         ),
                         Text(
                           "20-12-2025",
-                          style: const TextStyle(color: Colors.grey),
+                          style: const TextStyle(color: AppColors.primaryColor),
                         ),
                       ],
                     ),
