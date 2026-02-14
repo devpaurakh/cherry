@@ -1,3 +1,4 @@
+import 'package:cherry/core/color.theme.dart';
 import 'package:cherry/features/main/allmatches/allMatches.ui.dart';
 import 'package:cherry/features/main/mymatches/myMatches.ui.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class _MainnavigationState extends State<Mainnavigation> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 25,
-            color: Color(0xFF1A3263),
+            color: AppColors.primaryColor,
           ),
         ),
       ),
@@ -34,8 +35,8 @@ class _MainnavigationState extends State<Mainnavigation> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentNavigationIndex,
         type: BottomNavigationBarType.shifting,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: AppColors.primaryColor,
+        unselectedItemColor: AppColors.primaryColor.withAlpha(150),
 
         onTap: (index) {
           setState(() {

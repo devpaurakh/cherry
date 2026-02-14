@@ -1,3 +1,4 @@
+import 'package:cherry/core/color.theme.dart';
 import 'package:cherry/features/main/mainNavigation.ui.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+      theme: ThemeData(
+        primaryColor: AppColors.primaryColor,
+        scaffoldBackgroundColor: AppColors.backgroundColor,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primaryColor,
+          error: AppColors.warning,
+        ),
+      ),
       home: Mainnavigation(),
     );
   }
