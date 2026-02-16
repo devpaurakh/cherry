@@ -1,5 +1,4 @@
 import 'package:cherry/core/color.theme.dart';
-import 'package:cherry/features/main/allmatches/allMatches.ui.dart';
 import 'package:cherry/features/main/mymatches/myMatches.ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sficon/flutter_sficon.dart';
@@ -13,7 +12,7 @@ class Mainnavigation extends StatefulWidget {
 
 class _MainnavigationState extends State<Mainnavigation> {
   int _currentNavigationIndex = 0;
-  final List<Widget> _dashboardPages = [MyMatchesScreen(), AllMatchesScreen()];
+  final List<Widget> _dashboardPages = [MyMatchesScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,11 +47,6 @@ class _MainnavigationState extends State<Mainnavigation> {
             activeIcon: Icon(SFIcons.sf_sportscourt_fill),
             label: 'My Matches',
             icon: Icon(SFIcons.sf_sportscourt),
-          ),
-          BottomNavigationBarItem(
-            activeIcon: Icon(SFIcons.sf_globe_americas_fill),
-            label: 'All Matches',
-            icon: Icon(SFIcons.sf_globe_americas),
           ),
         ],
       ),
