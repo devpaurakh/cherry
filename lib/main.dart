@@ -1,6 +1,5 @@
 import 'package:cherry/core/color.theme.dart';
-//import 'package:cherry/features/main/mainNavigation.ui.dart';
-import 'package:cherry/features/main/mymatches/createMatches.ui.dart';
+import 'package:cherry/features/main/mainNavigation.ui.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,8 +22,7 @@ class MyApp extends StatelessWidget {
           error: AppColors.warning,
         ),
       ),
-      // home: Mainnavigation(),
-      home: CreateMatches(),
+      home: Mainnavigation(),
     );
   }
 }
