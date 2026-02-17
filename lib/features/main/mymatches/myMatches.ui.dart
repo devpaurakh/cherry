@@ -1,4 +1,7 @@
 import 'package:cherry/core/color.theme.dart';
+import 'package:cherry/features/main/MatchDetail/matchDetail.ui.dart';
+import 'package:cherry/features/main/mymatches/createMatches.ui.dart';
+import 'package:cherry/utils/navigation.utils.dart';
 import 'package:flutter/material.dart';
 
 class MyMatchesScreen extends StatelessWidget {
@@ -31,7 +34,7 @@ class MyMatchesScreen extends StatelessWidget {
         icon: const Icon(Icons.add, color: Colors.white),
 
         onPressed: () {
-          // Create new match
+          PageNavigator(ctx: context).nextPage(page: CreateMatches());
         },
       ),
 
@@ -41,7 +44,9 @@ class MyMatchesScreen extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                //here to detail page
+                PageNavigator(ctx: context).nextPage(
+                  page: MatchDetailPage(matchTitle: 'Blue House vs Red House'),
+                );
               },
               child: _matchCard(
                 title: "Blue House vs Red House",
@@ -70,7 +75,7 @@ Widget _matchCard({
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: AppColors.black.withAlpha(20),
+        color: AppColors.accentColor.withAlpha(20),
       ),
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -150,12 +155,13 @@ Widget _matchCard({
 
           /// FOOTER
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                date,
+                "Match Date: $date",
                 style: TextStyle(
                   color: AppColors.primaryColor,
+                  fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
               ),
