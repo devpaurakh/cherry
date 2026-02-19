@@ -53,6 +53,7 @@ class MyMatchesScreen extends StatelessWidget {
                 score: "100/2",
                 over: "5/10",
                 date: "12-02-2026",
+                numberOfPlayer: "5"
               ),
             ),
           ],
@@ -67,6 +68,7 @@ Widget _matchCard({
   required String score,
   required String over,
   required String date,
+  required String numberOfPlayer,
 }) {
   return Card(
     elevation: 0,
@@ -155,14 +157,21 @@ Widget _matchCard({
 
           /// FOOTER
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Match Date: $date",
                 style: TextStyle(
                   color: AppColors.primaryColor,
-                  fontSize: 18,
+                  fontSize: 13,
                   fontWeight: FontWeight.w500,
+                ),
+              ),
+              Text(
+                "$numberOfPlayer Palyers Each Team",
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
