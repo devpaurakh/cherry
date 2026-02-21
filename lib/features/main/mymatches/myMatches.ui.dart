@@ -4,9 +4,15 @@ import 'package:cherry/features/main/mymatches/createMatches.ui.dart';
 import 'package:cherry/utils/navigation.utils.dart';
 import 'package:flutter/material.dart';
 
-class MyMatchesScreen extends StatelessWidget {
+class MyMatchesScreen extends StatefulWidget {
   const MyMatchesScreen({super.key});
 
+  @override
+  State<MyMatchesScreen> createState() => _MyMatchesScreenState();
+}
+
+class _MyMatchesScreenState extends State<MyMatchesScreen> {
+  final String? numberOfPlayer = "5";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +51,10 @@ class MyMatchesScreen extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 PageNavigator(ctx: context).nextPage(
-                  page: MatchDetailPage(matchTitle: 'Blue House vs Red House'),
+                  page: MatchDetailPage(
+                    matchTitle: 'Blue House vs Red House',
+                    numberOfPlayer: "5.0",
+                  ),
                 );
               },
               child: _matchCard(
@@ -53,7 +62,7 @@ class MyMatchesScreen extends StatelessWidget {
                 score: "100/2",
                 over: "5/10",
                 date: "12-02-2026",
-                numberOfPlayer: "5"
+                numberOfPlayer: "5",
               ),
             ),
           ],

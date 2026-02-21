@@ -1,9 +1,15 @@
 import 'package:cherry/core/color.theme.dart';
+import 'package:cherry/features/main/MatchDetail/batting.ui.dart';
 import 'package:flutter/material.dart';
 
 class MatchDetailPage extends StatefulWidget {
   final String matchTitle;
-  const MatchDetailPage({super.key, required this.matchTitle});
+  final String? numberOfPlayer;
+  const MatchDetailPage({
+    super.key,
+    required this.matchTitle,
+    required this.numberOfPlayer,
+  });
 
   @override
   State<MatchDetailPage> createState() => _MatchDetailPageState();
@@ -54,6 +60,16 @@ class _MatchDetailPageState extends State<MatchDetailPage> {
               Tab(child: Text("Summary")),
             ],
           ),
+        ),
+        body: TabBarView(
+          children: [
+            Batting(
+              teamName: "Panjab XI",
+              numberOfPlayer: widget.numberOfPlayer?? "0",
+            ),
+            Center(child: Text("Bowling")),
+            Center(child: Text("Summry")),
+          ],
         ),
       ),
     );

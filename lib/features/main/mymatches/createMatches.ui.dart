@@ -359,6 +359,7 @@ Widget _teamInfoColumn(
           ),
         ),
       ),
+    
     ],
   );
 }
