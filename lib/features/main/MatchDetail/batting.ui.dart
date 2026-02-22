@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 class Batting extends StatefulWidget {
   final String teamName;
-  final String numberOfPlayer;
+  final int numberOfPlayer;
   const Batting({
     super.key,
     required this.teamName,
@@ -25,6 +25,27 @@ class _BattingState extends State<Batting> {
   String sixthBall = "4";
   TextEditingController stickerController = TextEditingController();
   TextEditingController nonStickerController = TextEditingController();
+  TextEditingController runController = TextEditingController();
+
+  final List<TextEditingController> _controllers = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize controllers based on the number of players
+    for (int i = 0; i < widget.numberOfPlayer; i++) {
+      _controllers.add(TextEditingController());
+    }
+  }
+
+  @override
+  void dispose() {
+    stickerController.dispose();
+    nonStickerController.dispose();
+    runController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +58,7 @@ class _BattingState extends State<Batting> {
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
-                  vertical: 10,
+                  vertical: 15,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +76,9 @@ class _BattingState extends State<Batting> {
                         const SizedBox(width: 20),
                         CircleAvatar(
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              //here shoing the dialogbox in the enter the player name
+                            },
                             icon: Icon(Icons.add),
                           ),
                         ),
@@ -64,18 +87,30 @@ class _BattingState extends State<Batting> {
                     const SizedBox(height: 20),
 
                     /// Striker
-                    _textFormFiledWidget(
-                      context,
-                      "Batter One",
-                      "Select Sticker",
-                      stickerController,
+                    GestureDetector(
+                      onTap: () {
+                        //when i click to show player list
+                      },
+                      child: _textFormFiledWidget(
+                        context,
+                        "Batter One",
+                        "Select Sticker",
+                        false,
+                        stickerController,
+                      ),
                     ),
                     const SizedBox(height: 10),
-                    _textFormFiledWidget(
-                      context,
-                      "Batter Two ",
-                      "Select Sticker",
-                      stickerController,
+                    GestureDetector(
+                      onTap: () {
+                        //when i click to show player list
+                      },
+                      child: _textFormFiledWidget(
+                        context,
+                        "Batter Two ",
+                        "Select Sticker",
+                        false,
+                        nonStickerController,
+                      ),
                     ),
                   ],
                 ),
@@ -264,14 +299,11 @@ class _BattingState extends State<Batting> {
                             showDialog(
                               context: context,
                               builder: (context) {
-                                final TextEditingController numberController =
-                                    TextEditingController();
-
                                 return AlertDialog(
                                   title: const Text('Enter Run'),
                                   content: Form(
                                     child: TextFormField(
-                                      controller: numberController,
+                                      controller: runController,
                                       keyboardType: TextInputType.number,
                                       decoration: const InputDecoration(
                                         hintText: 'Run',
@@ -298,7 +330,7 @@ class _BattingState extends State<Batting> {
                                             AppColors.containerColor,
                                       ),
                                       onPressed: () {
-                                        String value = numberController.text;
+                                        String value = runController.text;
 
                                         if (value.isNotEmpty) {
                                           Navigator.pop(
@@ -389,10 +421,12 @@ Widget _textFormFiledWidget(
   BuildContext context,
   String inputLabel,
   String hintText,
+  bool isEnable,
   TextEditingController controller,
 ) {
   return TextFormField(
-    // controller: teamAController,
+    controller: controller,
+    enabled: isEnable,
     decoration: InputDecoration(
       labelText: inputLabel,
       labelStyle: TextTheme.of(
