@@ -1,5 +1,6 @@
 import 'package:cherry/core/color.theme.dart';
 import 'package:cherry/features/main/MatchDetail/batting.ui.dart';
+import 'package:cherry/features/main/MatchDetail/bowling.ui.dart';
 import 'package:flutter/material.dart';
 
 class MatchDetailPage extends StatefulWidget {
@@ -65,9 +66,9 @@ class _MatchDetailPageState extends State<MatchDetailPage> {
           children: [
             Batting(
               teamName: "Panjab XI",
-              numberOfPlayer: widget.numberOfPlayer?? 0,
+              numberOfPlayer: widget.numberOfPlayer ?? 0,
             ),
-            Center(child: Text("Bowling")),
+            Bowling(),
             Center(child: Text("Summry")),
           ],
         ),
