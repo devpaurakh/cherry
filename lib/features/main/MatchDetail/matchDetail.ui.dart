@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class MatchDetailPage extends StatefulWidget {
   final String matchTitle;
-  final String? numberOfPlayer;
+  final int? numberOfPlayer;
   const MatchDetailPage({
     super.key,
     required this.matchTitle,
@@ -65,7 +65,7 @@ class _MatchDetailPageState extends State<MatchDetailPage> {
           children: [
             Batting(
               teamName: "Panjab XI",
-              numberOfPlayer: widget.numberOfPlayer?? "0",
+              numberOfPlayer: widget.numberOfPlayer?? 0,
             ),
             Center(child: Text("Bowling")),
             Center(child: Text("Summry")),

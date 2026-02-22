@@ -12,7 +12,7 @@ class MyMatchesScreen extends StatefulWidget {
 }
 
 class _MyMatchesScreenState extends State<MyMatchesScreen> {
-  final String? numberOfPlayer = "5";
+  final int? numberOfPlayer = 5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +53,7 @@ class _MyMatchesScreenState extends State<MyMatchesScreen> {
                 PageNavigator(ctx: context).nextPage(
                   page: MatchDetailPage(
                     matchTitle: 'Blue House vs Red House',
-                    numberOfPlayer: "5.0",
+                    numberOfPlayer: 0,
                   ),
                 );
               },
